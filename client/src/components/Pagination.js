@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pagination.css';
 
 function Pagination({resultsPerPage, totalResults, paginate}) {
 

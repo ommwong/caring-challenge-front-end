@@ -1,0 +1,7 @@
+.books-awards {
+  height: 50vh;
+  display: grid;
+  justify-items: center;
+  background-color: #bcbdc2;
+}
+

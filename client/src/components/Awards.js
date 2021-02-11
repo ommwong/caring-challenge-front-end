@@ -1,4 +1,5 @@
 import React from 'react';
+import './Awards.css';
 
 function Awards ({ awards }) {
 
@@ -23,7 +24,7 @@ function Awards ({ awards }) {
   })
 
   return (
-    <div className="App">
+    <div className="awards">
       <h1>Most Frequent Awards</h1>
       <div>{result}</div>
     </div>

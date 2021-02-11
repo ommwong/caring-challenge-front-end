@@ -10,7 +10,7 @@ function App() {
   const [booksAwards, setBooksAwards] = useState([]);
   const [awards, setAwards] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage] = useState(5);
+  const [resultsPerPage] = useState(10);
 
   useEffect (() => {
     getAuthorsAwards()

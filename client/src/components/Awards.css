@@ -1,0 +1,6 @@
+.awards {
+  height: 50vh;
+  display: grid;
+  justify-items: center;
+  background-color: #999a9f;
+}

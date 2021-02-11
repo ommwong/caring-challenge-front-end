@@ -1,4 +1,5 @@
 import React from 'react';
+import './AuthorsandAwards.css';
 
 function AuthorsandAwards({ authorsAwards }) {
 
@@ -23,7 +24,7 @@ function AuthorsandAwards({ authorsAwards }) {
   })
 
   return (
-    <div className="App">
+    <div className="authors-awards">
       <h1>Authors with the most awards</h1>
       <div>{result} </div>
     </div>

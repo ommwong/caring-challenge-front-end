@@ -1,5 +1,6 @@
 import React from 'react';
 import Pagination from './Pagination';
+import './BooksandAwards.css';
 
 function BooksandAwards({ booksAwards, currentPage, resultsPerPage, totalResults, paginate }) {
 
@@ -24,7 +25,7 @@ function BooksandAwards({ booksAwards, currentPage, resultsPerPage, totalResults
   const currentResults = result.slice(indexFirstResult, indexLastResult)
 
   return (
-    <div>
+    <div className='books-awards'>
       <h1>Books with the most awards</h1>
       <ul>
         {currentResults.map((item, index) => (
