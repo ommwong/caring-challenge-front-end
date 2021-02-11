@@ -30,7 +30,7 @@ function BooksandAwards({ booksAwards, currentPage, resultsPerPage, totalResults
       <ul>
         {currentResults.map((item, index) => (
           <div key={index}>
-            {item}
+            {index + 1}: {item}
           </div>
         ))}
       </ul>
