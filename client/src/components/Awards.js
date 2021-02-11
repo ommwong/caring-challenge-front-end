@@ -1,14 +1,14 @@
 import React from 'react';
 
-function BooksandAwards({ booksAwards }) {
+function Awards ({ awards }) {
 
   const obj = {};
 
-  booksAwards.map(item => {
-    if (obj[item.title]){
-      obj[item.title]++
+  awards.map(item => {
+    if (obj[item.award]){
+      obj[item.award]++
     } else {
-      obj[item.title] = 1
+      obj[item.award] = 1
     }
   })
 
@@ -16,19 +16,20 @@ function BooksandAwards({ booksAwards }) {
     Object.entries(obj).sort(([,a],[,b]) => b - a)
   );
 
-  const result = Object.entries(sorted).map(([key, value], index) => {
+  const result = Object.entries(sorted).map(([key], index) => {
     return (
       <div key={key}>{index + 1}: {key}</div>
     )
   })
 
+
   return (
     <div className="App">
-      <h1>Books with the most awards</h1>
+      <h1>Most Frequent Awards</h1>
       <div>{result}</div>
     </div>
   );
 }
 
-export default BooksandAwards;
+export default Awards;
 

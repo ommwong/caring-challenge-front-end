@@ -12,14 +12,13 @@ function AuthorsandAwards({ authorsAwards }) {
     }
   })
 
-  console.log(obj)
+  const sorted = Object.fromEntries(
+    Object.entries(obj).sort(([,a],[,b]) => b - a)
+  );
 
-  const result = Object.entries(obj).map(([key, value]) => {
+  const result = Object.entries(sorted).map(([key, value], index) => {
     return (
-      (value >= 2
-        ? <div>{key} has {value} awards</div>
-        : <div>{key} has {value} award</div>
-      )
+      <div key={key}>{index + 1}: {key}</div>
     )
   })
 

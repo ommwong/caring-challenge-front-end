@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { getAuthorsAwards, getBooksAwards, getAwards } from './ApiService';
 import AuthorsandAwards from './components/AuthorsandAwards';
 import BooksandAwards from './components/BooksandAwards';
+import Awards from './components/Awards';
 
 function App() {
 
@@ -11,23 +12,21 @@ function App() {
 
   useEffect (() => {
     getAuthorsAwards()
-      .then(authorsAwards => authorsAwards.result
-        .sort((a, b) => a.name < b.name ? -1 : 1)
-        .slice(0, 5))
-      .then(authorsAwards => setAuthorsAwards(authorsAwards))
+      .then(authorsAwards => setAuthorsAwards(authorsAwards.result))
 
     getBooksAwards()
       .then(booksAwards => setBooksAwards(booksAwards.result))
 
     getAwards()
-      .then(awards => setAwards(awards.result))
+      .then(awards => setAwards(awards.awards))
   }, [])
 
 
   return (
     <div className="App">
       <AuthorsandAwards authorsAwards={authorsAwards}/>
-      <BooksandAwards />
+      <BooksandAwards booksAwards={booksAwards}/>
+      <Awards awards={awards}/>
     </div>
   );
 }
