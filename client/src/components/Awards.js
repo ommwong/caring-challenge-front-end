@@ -13,7 +13,7 @@ function Awards ({ awards }) {
   })
 
   const sorted = Object.fromEntries(
-    Object.entries(obj).sort(([,a],[,b]) => b - a)
+    Object.entries(obj).sort(([,a],[,b]) => b - a).slice(0, 5)
   );
 
   const result = Object.entries(sorted).map(([key], index) => {
@@ -21,7 +21,6 @@ function Awards ({ awards }) {
       <div key={key}>{index + 1}: {key}</div>
     )
   })
-
 
   return (
     <div className="App">
