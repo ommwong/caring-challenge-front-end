@@ -1,42 +1,40 @@
 import React from 'react';
+import Pagination from './Pagination';
 
-function BooksandAwards({ currentResults }) {
+function BooksandAwards({ booksAwards, currentPage, resultsPerPage, totalResults, paginate }) {
 
-  // const obj = {};
+  const obj = {};
 
-  // booksAwards.map(item => {
-  //   if (obj[item.title]){
-  //     obj[item.title]++
-  //   } else {
-  //     obj[item.title] = 1
-  //   }
-  // })
+  booksAwards.map(item => {
+    if (obj[item.title]){
+      obj[item.title]++;
+    } else {
+      obj[item.title] = 1;
+    }
+  })
 
-  // const sorted = Object.fromEntries(
-  //   Object.entries(obj).sort(([,a],[,b]) => b - a)
-  // );
+  const sorted = Object.fromEntries(
+    Object.entries(obj).sort(([,a],[,b]) => b - a)
+  );
 
-  // const result = Object.entries(sorted).map(([key, value], index) => {
-  //   return (
-  //     <div key={key}>{index + 1}: {key}</div>
-  //   )
-  // })
+  const result = Object.keys(sorted);
 
-  // return (
-  //   <div className="App">
-  //     <h1>Books with the most awards</h1>
-  //     {/* <div>{result}</div> */}
-  //   </div>
-  // );
+  const indexLastResult = currentPage * resultsPerPage;
+  const indexFirstResult = indexLastResult - resultsPerPage;
+  const currentResults = result.slice(indexFirstResult, indexLastResult)
 
   return (
-    <ul>
-      {currentResults.map((item, index) => (
-        <div key={index}>
-          {item}
-        </div>
-      ))}
-    </ul>
+    <div>
+      <ul>
+        {currentResults.map((item, index) => (
+          <div key={index}>
+            {item}
+          </div>
+        ))}
+      </ul>
+
+      <Pagination resultsPerPage={resultsPerPage} totalResults={booksAwards.length} paginate={paginate}/>
+    </div>
   )
 }
 
