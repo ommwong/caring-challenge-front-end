@@ -3,7 +3,6 @@ import { getAuthorsAwards, getBooksAwards, getAwards } from './ApiService';
 import AuthorsandAwards from './components/AuthorsandAwards';
 import BooksandAwards from './components/BooksandAwards';
 import Awards from './components/Awards';
-// import Pagination from './components/Pagination'
 
 function App() {
 
@@ -30,12 +29,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <AuthorsandAwards authorsAwards={authorsAwards}/> */}
+      <AuthorsandAwards authorsAwards={authorsAwards}/>
       <BooksandAwards booksAwards={booksAwards} currentPage={currentPage} resultsPerPage={resultsPerPage} resultsPerPage={resultsPerPage} totalResults={booksAwards.length} paginate={paginate}/>
-      {/* <Awards awards={awards}/> */}
-    </div>
+      <Awards awards={awards}/>
+</div>
   );
 }
 
 export default App;
+
+
 

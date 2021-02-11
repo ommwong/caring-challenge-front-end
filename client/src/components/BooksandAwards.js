@@ -14,7 +14,7 @@ function BooksandAwards({ booksAwards, currentPage, resultsPerPage, totalResults
   })
 
   const sorted = Object.fromEntries(
-    Object.entries(obj).sort(([,a],[,b]) => b - a)
+    Object.entries(obj).sort(([,a],[,b]) => b - a).slice(0, 50)
   );
 
   const result = Object.keys(sorted);
@@ -25,6 +25,7 @@ function BooksandAwards({ booksAwards, currentPage, resultsPerPage, totalResults
 
   return (
     <div>
+      <h1>Books with the most awards</h1>
       <ul>
         {currentResults.map((item, index) => (
           <div key={index}>
