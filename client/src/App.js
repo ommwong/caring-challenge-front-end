@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { getAuthorsAwards, getBooksAwards, getAwards } from './ApiService';
 import AuthorsandAwards from './components/AuthorsandAwards';
+import BooksandAwards from './components/BooksandAwards';
 
 function App() {
 
@@ -22,13 +23,11 @@ function App() {
       .then(awards => setAwards(awards.result))
   }, [])
 
-  console.log(authorsAwards)
-  // console.log(booksAwards)
-
 
   return (
     <div className="App">
       <AuthorsandAwards authorsAwards={authorsAwards}/>
+      <BooksandAwards />
     </div>
   );
 }
