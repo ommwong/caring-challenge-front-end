@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { getAuthorsAwards, getBooksAwards, getAwards } from './ApiService';
+import AuthorsandAwards from './components/AuthorsandAwards';
 
 function App() {
 
@@ -9,23 +10,25 @@ function App() {
 
   useEffect (() => {
     getAuthorsAwards()
-      .then(authorsAwards => setAuthorsAwards({result: authorsAwards}))
+      .then(authorsAwards => authorsAwards.result
+        .sort((a, b) => a.name < b.name ? -1 : 1)
+        .slice(0, 5))
+      .then(authorsAwards => setAuthorsAwards(authorsAwards))
 
     getBooksAwards()
-      .then(booksAwards => setBooksAwards({result: booksAwards}))
+      .then(booksAwards => setBooksAwards(booksAwards.result))
 
     getAwards()
-      .then(awards => setAwards({awards: awards}))
+      .then(awards => setAwards(awards.result))
   }, [])
 
   console.log(authorsAwards)
-  console.log('books awards:', booksAwards)
-  console.log('awards:', awards)
+  // console.log(booksAwards)
 
 
   return (
     <div className="App">
-      <h1>Hello from client</h1>
+      <AuthorsandAwards authorsAwards={authorsAwards}/>
     </div>
   );
 }
