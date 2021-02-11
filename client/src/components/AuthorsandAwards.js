@@ -16,7 +16,7 @@ function AuthorsandAwards({ authorsAwards }) {
     Object.entries(obj).sort(([,a],[,b]) => b - a).slice(0, 10)
   );
 
-  const result = Object.entries(sorted).map(([key, value], index) => {
+  const result = Object.entries(sorted).map(([key], index) => {
     return (
       <div key={key}>{index + 1}: {key}</div>
     )
